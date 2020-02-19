@@ -275,7 +275,7 @@ func (k *kvlog) EncodeEntry(ent zapcore.Entry, fields []zapcore.Field) (*buffer.
 	for i := range fields {
 		fields[i].AddTo(handler)
 	}
-
+	handler.buf.AppendByte('\n')
 	return handler.buf, nil
 }
 
